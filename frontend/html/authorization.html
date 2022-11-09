@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-
+    <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/style.css">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -26,7 +27,7 @@
                 <div class="info">
                     <div class="info__user">
                         <div class="user-icon"></div>
-                        <span class="user-name">Имя ползователя</span>
+                        <span class="user-name">Имя пользователя</span>
                     </div>
                     <button class="logout btn">Выход</button>
                 </div>
@@ -43,8 +44,8 @@
         </form>
     </div>
 
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='scripts/script.js') }}">
+    <script src="/finnopolis-case/frontend/static/scripts/script.js"></script>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
 </body>
 
 </html>
