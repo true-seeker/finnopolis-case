@@ -48,12 +48,13 @@
     border-radius: 40px;
     background-color: #F0F0F3;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    padding: 40px;
 }
 
 .account__info {
     display: flex;
+    margin-bottom: 25px;
 }
 
 .account__logo {
@@ -78,8 +79,21 @@
 }
 
 .actions-header {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .information-item-header {
     text-decoration: underline;
+}
+
+.information-header {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.actions-del,
+.actions-trans {
+    width: 150px;
+    margin-bottom: 10px;
 }
