@@ -41,7 +41,7 @@ class Account(db.Model):
     user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'))
     account_id = db.Column(db.String(255), unique=True, nullable=False)
     bank_id = Column(Integer, ForeignKey('banks.id', ondelete='CASCADE'))
-    name = db.Column(db.String(255),  nullable=False)
+    name = db.Column(db.String(255), nullable=False)
 
 
 @app.route("/get_accounts", methods=['POST'])
