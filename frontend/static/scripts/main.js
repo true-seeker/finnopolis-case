@@ -76,7 +76,7 @@ function get_accounts(user_id) {
                             <div class="account__logo"></div>
                             <div class="account__info_inside">
                                 <span class="account-name">${account.account.account_name}</span>
-                                <span class="account-balance">${account_balance}</span>
+                                <span class="account-balance">${account_balance} ${account.balance.Data.Balance[0].Amount.currency}</span>
                             </div>
                         </div>
                         <span class="account-bankName">Номер счёта</span>
@@ -85,7 +85,22 @@ function get_accounts(user_id) {
                 }
                 html += `</div></div>`
                 $('.menu__myAccounts').after(html)
+                            const openMenu = document.querySelector('.open-button');
+            const openContent = document.querySelector('.open-content');
+
+            openMenu.addEventListener('click', (e) => {
+                e.preventDefault();
+                openContent.classList.toggle('open-content--show')
+
+                if (openMenu.style.backgroundImage == 'url("/static/img/arrow_up.png")') {
+                    openMenu.style.backgroundImage = 'url("/static/img/arrow_down.png")'
+                } else {
+                    openMenu.style.backgroundImage = 'url("/static/img/arrow_up.png")'
+                }
+
+            });
             }
+
 
         },
         dataType: "json",
