@@ -2,6 +2,14 @@ body {
     background-color: #F5F5F5;
 }
 
+.logo__green {
+    background-color: green;
+}
+
+.logo__yellow {
+    background-color: yellow;
+}
+
 .logo {
     display: flex;
     align-items: flex-end;
