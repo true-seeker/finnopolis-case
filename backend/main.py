@@ -1,14 +1,24 @@
+import os
 from dataclasses import dataclass
 
 import requests
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 
 from backend.models import AccountResponse, BankResponse, AccountsResponse, AccountData
 
-app = Flask(__name__)
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+template_dir = os.path.join(base_dir, 'finnopolis-case')
+template_dir = os.path.join(template_dir, 'frontend')
+template_dir = os.path.join(template_dir, 'html')
+
+static_dir = os.path.join(base_dir, 'finnopolis-case')
+static_dir = os.path.join(static_dir, 'frontend')
+static_dir = os.path.join(static_dir, 'static')
+
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 db = SQLAlchemy(app)
 
@@ -80,6 +90,11 @@ def get_accounts():
         result[bank.id].accounts.append(account_response)
 
     return result
+
+
+@app.route("/", methods=['GET'])
+def auth():
+    return render_template('authorization.html')
 
 
 if __name__ == '__main__':
