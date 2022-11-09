@@ -113,7 +113,7 @@ header {
 .menu__addItem {
     width: 40px;
     height: 40px;
-    background-image: url('/finnopolis-case/frontend/static/img/add_circle.png');
+    background-image: url('/static/img/add_circle.png');
     background-size: cover;
     cursor: pointer;
     background-color: none;
@@ -191,7 +191,7 @@ header {
 }
 
 .dashboard__graph {
-    background-image: url(/finnopolis-case/frontend/static/img/dashbord.png);
+    background-image: url(/static/img/dashbord.png);
     width: 150px;
     height: 150px;
     background-size: cover;

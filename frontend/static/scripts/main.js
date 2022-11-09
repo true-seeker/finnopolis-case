@@ -45,9 +45,14 @@ function get_accounts(user_id) {
                 for (let cur in currency_types) {
                     total_bank_sum_string += `${total_balance[i.bank.id][cur]} ${cur} `
                 }
+                let bank_color = '';
+                if (i.bank.id === 1)
+                    bank_color = 'logo__green'
+                if (i.bank.id === 2)
+                    bank_color = 'logo__yellow'
                 html = `<div class="menu__item">
                         <div class="bank-account__info">
-                            <div class="bank-account__logo"></div>
+                            <div class="bank-account__logo ${bank_color}"></div>
                             <span class="bank-account-bankName">${i.bank.name}</span>
                             <div class="bank-account-btn open-button" rel="nofollow"></div>
                         </div>
