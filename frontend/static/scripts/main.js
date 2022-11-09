@@ -1,12 +1,14 @@
 function get_accounts(user_id) {
     $.ajax({
         type: "POST",
-        url: "https://localhost:5000",
-        data: {user_id: 1},
+        url: "http://localhost:5000/get_accounts",
+        data: JSON.stringify({user_id: 1}),
         success: (data) => {
             console.log(data)
-        }, // функция обратного вызова, которая вызывается если AJAX запрос выполнится успешно
-        dataType: "application/json" // тип данных, который вы ожидаете получить от сервера
+        },
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
     });
 }
 
+get_accounts(1)
