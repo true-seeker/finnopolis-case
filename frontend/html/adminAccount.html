@@ -15,12 +15,13 @@
     <header>
         <div class="container">
             <div class="header">
-                <div class="logo">
-                    <h1>ПУФ</h1>
-                </div>
-                <div class="header__name">
-                    <h2>Управление счетом</h2>
-                </div>
+                <a href="http://127.0.0.1:5500/finnopolis-case/frontend/html/main.html">
+                    <div class="logo">
+                        <h1>ПУФ</h1>
+                        <h2 class="header__name">счёт</h2>
+                    </div>
+                </a>
+                
                 <div class="info">
                     <div class="info__user">
                         <div class="user-icon"></div>
@@ -43,7 +44,7 @@
             </div>
             <div class="account__actions">
                 <span class="actions-header">Действия</span>
-                <button class="actions-trans btn btn-primary" onclick="openAccountPage()">Перевести</button>
+                <button class="actions-trans btn btn-primary" onclick="openTransactionPage()">Перевести</button>
                 <button class="actions-del btn btn-secondary">Удалить с пульта</button>
             </div>
             <div class="account__information">
@@ -56,7 +57,7 @@
         
         </div>
     </div>
-
+    <script src="/finnopolis-case/frontend/static/scripts/script.js"></script>
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
 
 </body>

@@ -2,6 +2,15 @@ body {
     background-color: #F5F5F5;
 }
 
+.logo {
+    display: flex;
+    align-items: flex-end;
+}
+
+.logo >h1 {
+    margin-right: 12px;
+}
+
 .authorization-form {
     margin: 0 auto;
     width: 800px;
@@ -22,6 +31,12 @@ body {
     width: 100%;
     justify-content: space-between;
 
+}
+
+
+
+header {
+    margin-bottom: 40px;
 }
 
 .info__user,
@@ -64,7 +79,7 @@ body {
 
 
 .main-account__header {
-    font-size: 28px;
+    font-size: 32px;
     text-align: center;
     margin-bottom: 10px;
     border-bottom: 2px solid black;
@@ -72,7 +87,7 @@ body {
 
 .main-account__balance {
     text-align: center;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .main-balance {
@@ -84,7 +99,7 @@ body {
 .main-account__actions {
     text-align: center;
     border-top: 2px solid black;
-    font-size: 18px;
+    font-size: 24px;
     padding-top: 10px;
 }
 
@@ -121,6 +136,7 @@ body {
     padding: 0 15px;
     box-sizing: border-box;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .open-content--show {
@@ -153,6 +169,73 @@ body {
 .bank-account-bankName {
     font-size: 32px;
 }
+
+.analyse {
+    cursor: pointer;
+}
+
+.analyse__header {
+    font-size: 32px;
+    text-align: center;
+}
+
+.analyse__click {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dashboard__header {
+    font-size: 24px;
+    text-align: center;
+}
+
+.dashboard__graph {
+    background-image: url(/finnopolis-case/frontend/static/img/dashbord.png);
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    margin-right: 20px;
+}
+
+.dashboard__wrapper {
+    display: flex;
+}
+
+.dashboard__link {
+    display: flex;
+}
+
+.dashboard__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.dshb__link-color {
+    width: 30px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.dshb__link-color1 {
+    background-color: #FFFF66;
+}
+
+.dshb__link-color2 {
+    background-color: #FF6633;
+}
+
+.dshb__link-color3 {
+    background-color: #33CCFF;
+}
+
+.dshb__link-color4 {
+    background-color: #CC66FF;
+}
+
+
+
 
 /*adminAccount*/
 
@@ -210,4 +293,11 @@ body {
 .actions-trans {
     width: 150px;
     margin-bottom: 10px;
+}
+
+.transactions__wrapper {
+    background: #F5F5F5;
+box-shadow: -15px -15px 30px #FFFFFF, 15px 15px 60px #D0D0D0;
+border-radius: 25px;
+width: 250px;
 }
