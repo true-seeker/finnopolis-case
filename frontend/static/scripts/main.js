@@ -45,9 +45,14 @@ function get_accounts(user_id) {
                 for (let cur in currency_types) {
                     total_bank_sum_string += `${total_balance[i.bank.id][cur]} ${cur} `
                 }
+                let bank_color = '';
+                if (i.bank.id === 1)
+                    bank_color = 'logo__green'
+                if (i.bank.id === 2)
+                    bank_color = 'logo__yellow'
                 html = `<div class="menu__item">
                         <div class="bank-account__info">
-                            <div class="bank-account__logo"></div>
+                            <div class="bank-account__logo ${bank_color}"></div>
                             <span class="bank-account-bankName">${i.bank.name}</span>
                             <div class="bank-account-btn open-button" rel="nofollow"></div>
                         </div>
@@ -71,7 +76,7 @@ function get_accounts(user_id) {
                             <div class="account__logo"></div>
                             <div class="account__info_inside">
                                 <span class="account-name">${account.account.account_name}</span>
-                                <span class="account-balance">${account_balance}</span>
+                                <span class="account-balance">${account_balance} ${account.balance.Data.Balance[0].Amount.currency}</span>
                             </div>
                         </div>
                         <span class="account-bankName">Номер счёта</span>
@@ -80,7 +85,22 @@ function get_accounts(user_id) {
                 }
                 html += `</div></div>`
                 $('.menu__myAccounts').after(html)
+                            const openMenu = document.querySelector('.open-button');
+            const openContent = document.querySelector('.open-content');
+
+            openMenu.addEventListener('click', (e) => {
+                e.preventDefault();
+                openContent.classList.toggle('open-content--show')
+
+                if (openMenu.style.backgroundImage == 'url("/static/img/arrow_up.png")') {
+                    openMenu.style.backgroundImage = 'url("/static/img/arrow_down.png")'
+                } else {
+                    openMenu.style.backgroundImage = 'url("/static/img/arrow_up.png")'
+                }
+
+            });
             }
+
 
         },
         dataType: "json",
