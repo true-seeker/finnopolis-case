@@ -1,3 +1,4 @@
+import json
 import os
 from dataclasses import dataclass
 
@@ -107,6 +108,34 @@ def main():
 @app.route("/transactions", methods=['GET', ])
 def transactions():
     return render_template('transactions.html')
+
+
+@app.route("/payment", methods=['POST', ])
+def payment():
+    body = request.json
+    debtor_id = body['debtor_id']
+    creditor_id = body['creditor_id']
+    amount = body['amount']
+    debtor = db.get_or_404(Account, debtor_id)
+    creditor = db.get_or_404(Account, creditor_id)
+
+    bank = db.get_or_404(Bank, debtor.bank_id)
+
+    try:
+        r = requests.post(f'{bank.application_uri}open-banking/v1.3/aisp/vrp-payments',
+                          data=json.dumps({'debtor_id': debtor.account_id,
+                                           'creditor_id': creditor.account_id,
+                                           'amount': amount}),
+                          headers={'Content-Type': 'application/json'})
+
+    except requests.exceptions.ConnectionError:
+        return 'Bad request', 400
+    if r.status_code == 200:
+        return 'Ok', 200
+    elif r.status_code == 403:
+        return 'Money not sufficient', 403
+    elif r.status_code == 400:
+        return 'Debtor or creditor not found', 400
 
 
 if __name__ == '__main__':
