@@ -1,0 +1,85 @@
+.authorization-form {
+    margin: 0 auto;
+    width: 800px;
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #F0F0F3;
+    box-shadow: -1px -1px 3px #FFFFFF, 1.5px 1.5px 3px rgba(174, 174, 192, 0.4);
+    border-radius: 5px;
+    margin-top: 200px;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.info__user,
+.info {
+    display: flex;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+}
+
+.main-account,
+.main-menu,
+.some {
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*adminAccount*/
+
+.account-block {
+    margin: 0 auto;
+    width: 800px;
+    border-radius: 40px;
+    background-color: #F0F0F3;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.account__info {
+    display: flex;
+}
+
+.account__logo {
+    width: 78px;
+    height: 78px;
+    background-color: black;
+    margin-right: 10px;
+}
+
+.account__info_inside {
+    display: flex;
+    flex-direction:column;
+}
+
+.account-name {
+    font-size: 36px;
+}
+
+.account__actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.actions-header {
+}
+
+.information-item-header {
+    text-decoration: underline;
+}

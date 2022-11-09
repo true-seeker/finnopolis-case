@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <link rel="stylesheet" href="/finnopolis-case/frontend/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header">
+                <div class="logo">
+                    <h1>ПУФ</h1>
+                </div>
+                <div class="header__name">
+                    <h2>Пульт управления</h2>
+                </div>
+                <div class="info">
+                    <div class="info__user">
+                        <div class="user-icon"></div>
+                        <span class="user-name">Имя ползователя</span>
+                    </div>
+                    <button class="logout btn">Выход</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <form action="" class="authorization-form" onsubmit="return false;">
+            <h1>Name</h1>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Enter email">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <button type="submit" class="btn btn-primary btn-authorization" onclick="openMainPage()">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="/finnopolis-case/frontend/static/scripts/script.js"></script>
+</body>
+
+</html>
