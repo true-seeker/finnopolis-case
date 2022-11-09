@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="/bootstrap/bootstrap.js"></script>
+    <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header">
+                <a href="/main">
+                    <div class="logo">
+                        <h1>ПУФ</h1>
+                        <h2 class="header__name">аналитика</h2>
+                    </div>
+                </a>
+
+                <div class="info">
+                    <div class="info__user">
+                        <div class="user-icon"></div>
+                        <span class="user-name">Имя пользователя</span>
+                    </div>
+                    <button class="logout btn">Выход</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+           
+            </div>
+            <div class="col-8">
+                <div class="main-menu">
+                    <div class="menu__myAccounts">
+                        <span class="addItem-header">Анализ расходов на Ноябрь</span>
+                    </div>
+
+
+
+
+
+                    <div class="menu__item">
+                        <div class="bank-account__info">
+                            <div class="bank-account__logo"></div>
+                            <div >
+
+                            </div>
+                            <span class="bank-account-bankName">Зеленый банк</span>
+                        </div>
+                       
+                    </div>
+
+
+
+
+
+
+
+                    <div class="menu__item">
+                        <div class="account__info">
+                            <div class="account__logo"></div>
+                            <div class="account__info_inside">
+                                <span class="account-name">Имя счета</span>
+                                <span class="account-balance">Баланс</span>
+                            </div>
+                        </div>
+                        <span class="account-bankName">Крутой банк</span>
+                        <span class="account-numbers">25235235235</span>
+                    </div>
+
+                    <div class="menu__item">
+                        <div class="account__info">
+                            <div class="account__logo"></div>
+                            <div class="account__info_inside">
+                                <span class="account-name">Имя счета</span>
+                                <span class="account-balance">Баланс</span>
+                            </div>
+                        </div>
+                        <span class="account-bankName">Крутой банк</span>
+                        <span class="account-numbers">25235235235</span>
+                    </div>
+
+                    <div class="menu__item">
+                        <div class="account__info">
+                            <div class="account__logo"></div>
+                            <div class="account__info_inside">
+                                <span class="account-name">Имя счета</span>
+                                <span class="account-balance">Баланс</span>
+                            </div>
+                        </div>
+                        <span class="account-bankName">Крутой банк</span>
+                        <span class="account-numbers">25235235235</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-2">
+                
+            </div>
+        </div>
+    </div>
+    <script src="/finnopolis-case/frontend/static/scripts/script.js"></script>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+
+
+    <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+</body>
+
+</html>
