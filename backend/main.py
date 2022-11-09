@@ -130,6 +130,7 @@ def payment():
 
     except requests.exceptions.ConnectionError:
         return 'Bad request', 400
+
     if r.status_code == 200:
         return 'Ok', 200
     elif r.status_code == 403:
