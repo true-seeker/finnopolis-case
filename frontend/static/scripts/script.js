@@ -1,9 +1,13 @@
 function openMainPage() {
-    location.href = "/main";
+    location.href = "http://127.0.0.1:5500/finnopolis-case/frontend/html/Main.html";
 }
 
 function openAccountPage() {
-    location.href = "/transactions";
+    location.href = "http://127.0.0.1:5500/finnopolis-case/frontend/html/adminAccount.html";
+}
+
+function openTransactionPage() {
+    location.href = "http://127.0.0.1:5500/finnopolis-case/frontend/html/transactions.html";
 }
 
 

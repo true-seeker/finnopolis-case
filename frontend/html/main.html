@@ -20,12 +20,13 @@
     <header>
         <div class="container">
             <div class="header">
-                <div class="logo">
-                    <h1>ПУФ</h1>
-                </div>
-                <div class="header__name">
-                    <h2>Пульт управления</h2>
-                </div>
+                <a href="http://127.0.0.1:5500/finnopolis-case/frontend/html/main.html">
+                    <div class="logo">
+                        <h1>ПУФ</h1>
+                        <h2 class="header__name">управления</h2>
+                    </div>
+                </a>
+
                 <div class="info">
                     <div class="info__user">
                         <div class="user-icon"></div>
@@ -46,10 +47,10 @@
                     <span class="main-balance" id="USD_balance">....</span>
                     <span class="main-balance" id="EUR_balance">....</span>
                     <span class="main-account__actions">Быстрые действия</span>
-                    <button class="actions-trans btn btn-primary" onclick="openAccountPage()">Перевести</button>
+                    <button class="actions-trans btn btn-primary" onclick="openTransactionPage()">Перевести</button>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-5">
                 <div class="main-menu">
                     <div class="menu__myAccounts">
                         <span class="addItem-header">Мои подключенные счета</span>
@@ -60,11 +61,9 @@
 
 
 
-
-
                     <div class="menu__item">
                         <div class="bank-account__info">
-                            <div class="bank-account__logo"></div>
+                            <img src="" class="bank-account__logo"></img>
                             <span class="bank-account-bankName">Зеленый банк</span>
                             <div class="bank-account-btn open-button" rel="nofollow"></div>
                         </div>
@@ -77,9 +76,9 @@
                             <span class="bank-money-text">.....</span>
                         </div>
 
-                        <div id="opencontent" class="open-content">
+                        <div id="opencontent" class="open-content" onclick="openAccountPage()">
                             <div class="account__info">
-                                <div class="account__logo"></div>
+                                <img src="" class="account__logo"></img>
                                 <div class="account__info_inside">
                                     <span class="account-name">Имя счета</span>
                                     <span class="account-balance">Баланс</span>
@@ -96,46 +95,77 @@
 
 
 
-<!--                    <div class="menu__item">-->
-<!--                        <div class="account__info">-->
-<!--                            <div class="account__logo"></div>-->
-<!--                            <div class="account__info_inside">-->
-<!--                                <span class="account-name">Имя счета</span>-->
-<!--                                <span class="account-balance">Баланс</span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <span class="account-bankName">Крутой банк</span>-->
-<!--                        <span class="account-numbers">25235235235</span>-->
-<!--                    </div>-->
+                    <div class="menu__item">
+                        <div class="account__info">
+                            <img src="" class="account__logo"></img>
+                            <div class="account__info_inside">
+                                <span class="account-name">Имя счета</span>
+                                <span class="account-balance">Баланс</span>
+                            </div>
+                        </div>
+                        <span class="account-bankName">Крутой банк</span>
+                        <span class="account-numbers">25235235235</span>
+                    </div>
 
-<!--                    <div class="menu__item">-->
-<!--                        <div class="account__info">-->
-<!--                            <div class="account__logo"></div>-->
-<!--                            <div class="account__info_inside">-->
-<!--                                <span class="account-name">Имя счета</span>-->
-<!--                                <span class="account-balance">Баланс</span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <span class="account-bankName">Крутой банк</span>-->
-<!--                        <span class="account-numbers">25235235235</span>-->
-<!--                    </div>-->
+                    <div class="menu__item">
+                        <div class="account__info">
+                            <img src="" class="account__logo"></img>
+                            <div class="account__info_inside">
+                                <span class="account-name">Имя счета</span>
+                                <span class="account-balance">Баланс</span>
+                            </div>
+                        </div>
+                        <span class="account-bankName">Крутой банк</span>
+                        <span class="account-numbers">25235235235</span>
+                    </div>
 
-<!--                    <div class="menu__item">-->
-<!--                        <div class="account__info">-->
-<!--                            <div class="account__logo"></div>-->
-<!--                            <div class="account__info_inside">-->
-<!--                                <span class="account-name">Имя счета</span>-->
-<!--                                <span class="account-balance">Баланс</span>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <span class="account-bankName">Крутой банк</span>-->
-<!--                        <span class="account-numbers">25235235235</span>-->
-<!--                    </div>-->
+                    <div class="menu__item">
+                        <div class="account__info">
+                            <img src="" class="account__logo"></img>
+                            <div class="account__info_inside">
+                                <span class="account-name">Имя счета</span>
+                                <span class="account-balance">Баланс</span>
+                            </div>
+                        </div>
+                        <span class="account-bankName">Крутой банк</span>
+                        <span class="account-numbers">25235235235</span>
+                    </div>
 
                 </div>
             </div>
-            <div class="col-3">
-                <div class="analyse"></div>
+            <div class="col-4">
+                <div class="analyse">
+                    <p class="analyse__header">Анализ финансов</p>
+                    <div class="dashboard-full">
+                        <p class="dashboard__header">Анализ расходов</p>
+                        <div class="dashboard__wrapper">
+                            <div class="dashboard__graph"></div>
+                        <div class="dashboard__links">
+                            <div class="dashboard__link">
+                                <div class="dshb__link-color dshb__link-color1"></div>
+                                <span class="dshb__link-head">Такси</span>
+                            </div>
+                            <div class="dashboard__link">
+                                <div class="dshb__link-color dshb__link-color2"></div>
+                                <span class="dshb__link-head">Кафе</span>
+
+                            </div>
+                            <div class="dashboard__link">
+                                <div class="dshb__link-color dshb__link-color3"></div>
+                                <span class="dshb__link-head">Супермаркеты</span>
+
+                            </div>
+                            <div class="dashboard__link">
+                                <div class="dshb__link-color dshb__link-color4"></div>
+                                <span class="dshb__link-head">Одежда</span>
+
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                    <p class="analyse__click">Кликните для просмотра аналитики</p>
+                </div>
             </div>
         </div>
     </div>
