@@ -161,7 +161,7 @@ header {
     position: absolute;
     width: 40px;
     height: 40px;
-    background-image: url('/finnopolis-case/frontend/static/img/arrow_down.png');
+    background-image: url('/static/img/arrow_down.png');
     background-size: cover;
     cursor: pointer;
 }

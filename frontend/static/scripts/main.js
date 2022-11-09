@@ -45,7 +45,7 @@ function get_accounts(user_id) {
                 for (let cur in currency_types) {
                     total_bank_sum_string += `${total_balance[i.bank.id][cur]} ${cur} `
                 }
-                html = `                    <div class="menu__item">
+                html = `<div class="menu__item">
                         <div class="bank-account__info">
                             <div class="bank-account__logo"></div>
                             <span class="bank-account-bankName">${i.bank.name}</span>
