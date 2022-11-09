@@ -1,12 +1,25 @@
-
-
 function openMainPage() {
-    location.href="/main.html";
+    location.href = "http://127.0.0.1:5500/finnopolis-case/frontend/html/main.html";
+}
+
+function openAccountPage() {
+    location.href = "http://127.0.0.1:5500/finnopolis-case/frontend/html/transactions.html";
 }
 
 
 
+const openMenu = document.querySelector('.open-button');
+const openContent = document.querySelector('.open-content');
 
-function openAccountPage() {
-    location.href="http://127.0.0.1:5500/finnopolis-case/frontend/html/transactions.html";
-} 
+openMenu.addEventListener('click', (e) => {
+    e.preventDefault();
+    openContent.classList.toggle('open-content--show')
+    
+    if(openMenu.style.backgroundImage == 'url("/finnopolis-case/frontend/static/img/arrow_up.png")') {
+        openMenu.style.backgroundImage = 'url("/finnopolis-case/frontend/static/img/arrow_down.png")'
+    }
+    else {
+        openMenu.style.backgroundImage = 'url("/finnopolis-case/frontend/static/img/arrow_up.png")'
+    }
+   
+});

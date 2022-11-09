@@ -1,3 +1,7 @@
+body {
+    background-color: #F5F5F5;
+}
+
 .authorization-form {
     margin: 0 auto;
     width: 800px;
@@ -25,19 +29,129 @@
     display: flex;
 }
 
+.info__user {
+    align-items: center;
+}
+
 .user-icon {
     width: 40px;
     height: 40px;
     background-color: black;
+    margin-right: 10px;
 }
+
+.user-name {
+    margin-right: 10px;
+}
+
+/*Main*/
 
 .main-account,
 .main-menu,
-.some {
-    border: 2px solid black;
-    border-radius: 10px;
+.analyse {
+    background: #F5F5F5;
+    box-shadow: -20px -20px 60px #FFFFFF, 20px 20px 60px rgba(174, 174, 192, 0.4);
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.main-account>.actions-trans {
+    margin: 10px auto;
+}
+
+
+.main-account__header {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid black;
+}
+
+.main-account__balance {
+    text-align: center;
+    font-size: 20px;
+}
+
+.main-balance {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main-account__actions {
+    text-align: center;
+    border-top: 2px solid black;
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.menu__item {
+    border: 1px solid black;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.menu__addItem {
+    width: 40px;
+    height: 40px;
+    background-image: url('/finnopolis-case/frontend/static/img/add_circle.png');
+    background-size: cover;
+    cursor: pointer;
+    background-color: none;
+}
+
+.menu__myAccounts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.addItem-header {
+    font-size: 32px;
+}
+
+.open-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 1s ease max-height;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.open-content--show {
+    max-height: 300px;
+}
+
+.bank-account__logo {
+    width: 78px;
+    height: 78px;
+    background-color: black;
+    margin-right: 10px;
+}
+
+.bank-account__info {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.bank-account-btn {
+    right: 0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url('/finnopolis-case/frontend/static/img/arrow_down.png');
+    background-size: cover;
+    cursor: pointer;
+}
+
+.bank-account-bankName {
+    font-size: 32px;
 }
 
 /*adminAccount*/
@@ -54,23 +168,22 @@
 
 .account__info {
     display: flex;
-    margin-bottom: 25px;
 }
 
 .account__logo {
-    width: 78px;
-    height: 78px;
+    width: 70px;
+    height: 70px;
     background-color: black;
     margin-right: 10px;
 }
 
 .account__info_inside {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
 }
 
 .account-name {
-    font-size: 36px;
+    font-size: 28px;
 }
 
 .account__actions {
@@ -81,6 +194,7 @@
 .actions-header {
     font-size: 24px;
     margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .information-item-header {

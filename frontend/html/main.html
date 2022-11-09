@@ -9,6 +9,8 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="/bootstrap/bootstrap.js"></script>
+    <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/style.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
@@ -27,9 +29,9 @@
                 <div class="info">
                     <div class="info__user">
                         <div class="user-icon"></div>
-                        <span class="user-name">Имя ползователя</span>
+                        <span class="user-name">Имя пользователя</span>
                     </div>
-                    <button class="logout">Выход</button>
+                    <button class="logout btn">Выход</button>
                 </div>
             </div>
         </div>
@@ -41,17 +43,101 @@
                     <span class="main-account__header">Мой общий счет</span>
                     <span class="main-account__balance">Общий баланс</span>
                     <span class="main-balance">....</span>
+                    <span class="main-account__actions">Быстрые действия</span>
+                    <button class="actions-trans btn btn-primary" onclick="openAccountPage()">Перевести</button>
                 </div>
             </div>
             <div class="col-6">
-                <div class="main-menu"></div>
+                <div class="main-menu">
+                    <div class="menu__myAccounts">
+                        <span class="addItem-header">Мои подключенные счета</span>
+                        <button class="menu__addItem btn"></button>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="menu__item">
+                        <div class="bank-account__info">
+                            <div class="bank-account__logo"></div>
+                            <span class="bank-account-bankName">Зеленый банк</span>
+                            <div class="bank-account-btn open-button" rel="nofollow"></div>
+                        </div>
+                        <div class="">
+                            <span class="bank-allcounts-header">Всего счетов:</span>
+                            <span class="bank-allcounts-text">.....</span>
+                        </div>
+                        <div class="">
+                            <span class="bank-money-header">Общая сумма:</span>
+                            <span class="bank-money-text">.....</span>
+                        </div>
+
+                        <div id="opencontent" class="open-content">
+                            <div class="account__info">
+                                <div class="account__logo"></div>
+                                <div class="account__info_inside">
+                                    <span class="account-name">Имя счета</span>
+                                    <span class="account-balance">Баланс</span>
+                                </div>
+                            </div>
+                            <span class="account-bankName">Крутой банк</span>
+                            <span class="account-numbers">25235235235</span>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="menu__item">
+                        <div class="account__info">
+                            <div class="account__logo"></div>
+                            <div class="account__info_inside">
+                                <span class="account-name">Имя счета</span>
+                                <span class="account-balance">Баланс</span>
+                            </div>
+                        </div>
+                        <span class="account-bankName">Крутой банк</span>
+                        <span class="account-numbers">25235235235</span>
+                    </div>
+
+                    <div class="menu__item">
+                        <div class="account__info">
+                            <div class="account__logo"></div>
+                            <div class="account__info_inside">
+                                <span class="account-name">Имя счета</span>
+                                <span class="account-balance">Баланс</span>
+                            </div>
+                        </div>
+                        <span class="account-bankName">Крутой банк</span>
+                        <span class="account-numbers">25235235235</span>
+                    </div>
+
+                    <div class="menu__item">
+                        <div class="account__info">
+                            <div class="account__logo"></div>
+                            <div class="account__info_inside">
+                                <span class="account-name">Имя счета</span>
+                                <span class="account-balance">Баланс</span>
+                            </div>
+                        </div>
+                        <span class="account-bankName">Крутой банк</span>
+                        <span class="account-numbers">25235235235</span>
+                    </div>
+
+                </div>
             </div>
             <div class="col-3">
-                <div class="some"></div>
+                <div class="analyse"></div>
             </div>
         </div>
     </div>
-
+    <script src="/finnopolis-case/frontend/static/scripts/script.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='scripts/main.js') }}">
 
 
