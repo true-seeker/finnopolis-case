@@ -10,7 +10,7 @@ from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from flask_cors import CORS
 
-from backend.models import AccountResponse, BankResponse, AccountsResponse, AccountData
+from models import AccountResponse, BankResponse, AccountsResponse, AccountData
 
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 template_dir = os.path.join(base_dir, 'finnopolis-case')
