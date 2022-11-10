@@ -2,25 +2,20 @@ import json
 import os
 from dataclasses import dataclass
 
-import flask
 import requests
 from flask import Flask, request, render_template
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
-from flask_cors import CORS
 
 from models import AccountResponse, BankResponse, AccountsResponse, AccountData
 
-# base_dir = os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-# template_dir = os.path.join('', 'finnopolis-case')
 template_dir = os.path.join('/', 'frontend')
 template_dir = os.path.join(template_dir, 'html')
-print(template_dir)
-# static_dir = os.path.join('', 'finnopolis-case')
+
 static_dir = os.path.join('/', 'frontend')
 static_dir = os.path.join(static_dir, 'static')
-print(static_dir)
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 db = SQLAlchemy(app)
@@ -60,6 +55,9 @@ class Account(db.Model):
 
 @app.route("/get_accounts", methods=['POST'])
 def get_accounts():
+    """
+    Получение списка счетов по идентификатору пользователя
+    """
     js = request.json
     user_id = js['user_id']
     user = db.get_or_404(User, user_id)
@@ -67,6 +65,8 @@ def get_accounts():
     result = {}
     for account in user.accounts:
         bank = db.get_or_404(Bank, account.bank_id)
+
+        # костыль ;)
         bank.application_uri = bank.application_uri.replace('localhost:8080', 'bank1:8080')
         bank.application_uri = bank.application_uri.replace('localhost:5467', 'bank2:5467')
 
@@ -99,6 +99,41 @@ def get_accounts():
     return result
 
 
+@app.route("/payment", methods=['POST', ])
+def payment():
+    """
+    Платеж с счета debtor_id на счёт creditor_id c суммой amount
+    """
+    body = request.json
+    debtor_id = body['debtor_id']
+    creditor_id = body['creditor_id']
+    amount = body['amount']
+    debtor = db.get_or_404(Account, debtor_id)
+    creditor = db.get_or_404(Account, creditor_id)
+
+    bank = db.get_or_404(Bank, debtor.bank_id)
+
+    # костыль ;)
+    bank.application_uri = bank.application_uri.replace('localhost:8080', 'bank1:8080')
+    bank.application_uri = bank.application_uri.replace('localhost:5467', 'bank2:5467')
+    try:
+        r = requests.post(f'{bank.application_uri}open-banking/v1.3/aisp/vrp-payments',
+                          data=json.dumps({'debtor_id': debtor.account_id,
+                                           'creditor_id': creditor.account_id,
+                                           'amount': amount}),
+                          headers={'Content-Type': 'application/json'})
+
+    except requests.exceptions.ConnectionError:
+        return 'Bad request', 400
+    print(r.status_code)
+    if r.status_code == 200:
+        return 'Ok', 200
+    elif r.status_code == 403:
+        return 'Money not sufficient', 403
+    elif r.status_code == 400:
+        return 'Debtor or creditor not found', 400
+
+
 @app.route("/", methods=['GET'])
 def index():
     return render_template('authorization.html')
@@ -117,36 +152,6 @@ def transactions():
 @app.route("/analytics", methods=['GET', ])
 def analytics():
     return render_template('analytics.html')
-
-
-@app.route("/payment", methods=['POST', ])
-def payment():
-    body = request.json
-    debtor_id = body['debtor_id']
-    creditor_id = body['creditor_id']
-    amount = body['amount']
-    debtor = db.get_or_404(Account, debtor_id)
-    creditor = db.get_or_404(Account, creditor_id)
-
-    bank = db.get_or_404(Bank, debtor.bank_id)
-    bank.application_uri = bank.application_uri.replace('localhost:8080','bank1:8080')
-    bank.application_uri = bank.application_uri.replace('localhost:5467','bank2:5467')
-    try:
-        r = requests.post(f'{bank.application_uri}open-banking/v1.3/aisp/vrp-payments',
-                          data=json.dumps({'debtor_id': debtor.account_id,
-                                           'creditor_id': creditor.account_id,
-                                           'amount': amount}),
-                          headers={'Content-Type': 'application/json'})
-
-    except requests.exceptions.ConnectionError:
-        return 'Bad request', 400
-    print(r.status_code)
-    if r.status_code == 200:
-        return 'Ok', 200
-    elif r.status_code == 403:
-        return 'Money not sufficient', 403
-    elif r.status_code == 400:
-        return 'Debtor or creditor not found', 400
 
 
 if __name__ == '__main__':
