@@ -12,6 +12,7 @@ class BankResponse:
 class AccountData:
     open_api_account: dict
     account_name: str
+    account_id: int
 
 
 @dataclass

@@ -1,4 +1,23 @@
-function make_transaction(debtor_id, creditor_id, amount) {
+let select1 = () => {
+    const e1 = document.querySelector('.default1')
+    const choice1 = new Choices(e1, {
+        searchEnabled: false,
+        itemSelectText: '',
+    })
+    return choice1
+}
+const select = () => {
+    const element = document.querySelector('.default')
+    const choice = new Choices(element, {
+        searchEnabled: false,
+        itemSelectText: '',
+    })
+    return choice
+}
+let from_select;
+let to_select;
+
+function make_transaction(creditor_id, debtor_id, amount) {
     $.ajax({
         type: "POST",
         url: "http://localhost:5000/payment",
@@ -11,4 +30,40 @@ function make_transaction(debtor_id, creditor_id, amount) {
     });
 }
 
-make_transaction(1, 2, 100)
+function get_accounts(user_id) {
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:5000/get_accounts",
+        data: JSON.stringify({user_id: user_id}),
+        success: (data) => {
+            for (let i of Object.values(data)) {
+                console.log(i)
+                for (let account of i.accounts) {
+                    let acc = account.account.open_api_account.Data.Account[0].AccountDetails[0];
+                    html = `<option value="${account.account.account_id}">
+                        <span class="select__name">${account.account.account_name}</span>
+                        <span class="select__balance">${acc.identification}</span>
+                    </option>`
+                    $('#from_select').append(html);
+                    $('#to_select').append(html);
+                }
+            }
+            from_select = select1();
+            to_select = select();
+            console.log(from_select.getValue())
+        },
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+    })
+}
+
+$('#make-transaction').click(() => {
+    let from_id = from_select.getValue().value
+    let to_id = to_select.getValue().value
+    let amount = $('#amount_input').val()
+    console.log(amount)
+    make_transaction(from_id, to_id, amount)
+})
+
+// make_transaction(1, 2, 100)
+get_accounts(1)

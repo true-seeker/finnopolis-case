@@ -268,6 +268,22 @@ header {
     background-color: #CC66FF;
 }
 
+.analyse__color1{
+    background-color: rgba(255, 255, 102, .8);
+}
+
+.analyse__color2{
+    background-color: rgba(255, 102, 51, .8)
+}
+
+.analyse__color3{
+    background-color: rgba(51, 204, 255, .8);
+}
+
+.analyse__color4{
+    background-color: rgba(204, 102, 255, .8);
+}
+
 
 /*adminAccount*/
 

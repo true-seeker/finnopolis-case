@@ -67,7 +67,9 @@ def get_accounts():
     result = {}
     for account in user.accounts:
         bank = db.get_or_404(Bank, account.bank_id)
-        account_data = AccountData(open_api_account={}, account_name=account.name)
+        account_data = AccountData(open_api_account={},
+                                   account_name=account.name,
+                                   account_id=account.id)
         account_response = AccountResponse(balance={},
                                            account=account_data)
 
@@ -135,7 +137,7 @@ def payment():
 
     except requests.exceptions.ConnectionError:
         return 'Bad request', 400
-
+    print(r.status_code)
     if r.status_code == 200:
         return 'Ok', 200
     elif r.status_code == 403:

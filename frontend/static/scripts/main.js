@@ -8,7 +8,7 @@ function get_accounts(user_id) {
     $.ajax({
         type: "POST",
         url: "http://localhost:5000/get_accounts",
-        data: JSON.stringify({user_id: 1}),
+        data: JSON.stringify({user_id: user_id}),
         success: (data) => {
             let total_balance = {}
             for (let i of Object.values(data)) {
