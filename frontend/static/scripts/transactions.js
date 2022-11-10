@@ -24,10 +24,9 @@ function make_transaction(creditor_id, debtor_id, amount) {
     $.ajax({
         type: "POST",
         url: "http://localhost:5000/payment",
-        data: JSON.stringify({debtor_id: debtor_id, creditor_id: creditor_id, amount: amount}),
+        data: JSON.stringify({ debtor_id: debtor_id, creditor_id: creditor_id, amount: amount }),
         statusCode: {
             200: function (response) {
-                console.log(200)
                 pop.style.display = "block"
                 pop.style.color = "#28a745"
                 pop.textContent = 'Успешно! Перевод совершен'
@@ -59,7 +58,7 @@ function get_accounts(user_id) {
     $.ajax({
         type: "POST",
         url: "http://localhost:5000/get_accounts",
-        data: JSON.stringify({user_id: user_id}),
+        data: JSON.stringify({ user_id: user_id }),
         success: (data) => {
             for (let i of Object.values(data)) {
                 console.log(i)
@@ -89,6 +88,11 @@ $('#make-transaction').click(() => {
     let amount = $('#amount_input').val()
     console.log(amount)
     make_transaction(from_id, to_id, amount)
+    if (from_id == to_id) {
+        pop.style.display = "block"
+        pop.style.color = "#dc3545"
+        pop.textContent = 'Выбраны одинаковые счета'
+    }
 })
 
 // make_transaction(1, 2, 100)
