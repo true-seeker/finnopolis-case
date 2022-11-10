@@ -44,7 +44,7 @@ function get_accounts(user_id) {
                 console.log(i)
                 let total_bank_sum_string = ``
                 for (let cur in currency_types) {
-                    total_bank_sum_string += `<span>${total_balance[i.bank.id][cur]} <span class="currency" >${cur}</span></span>`
+                    total_bank_sum_string += `<span>${total_balance[i.bank.id][cur].toFixed(2)} <span class="currency" >${cur}</span></span>`
                 }
                 let bank_color = '';
                 if (i.bank.id === 1)
@@ -78,7 +78,7 @@ function get_accounts(user_id) {
                         <div class="account__info">
                             <div class="account__info_inside">
                                 <span class="account-name">${account.account.account_name}</span>
-                                <span class="account-balance">${account_balance} ${account.balance.Data.Balance[0].Amount.currency}</span>
+                                <span class="account-balance">${account_balance} <span class="currency">${account.balance.Data.Balance[0].Amount.currency}</span></span>
                             </div>
                         </div>
                         <div class="my-1">
