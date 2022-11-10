@@ -51,6 +51,7 @@ function get_accounts(user_id) {
                     bank_color = 'logo__green'
                 if (i.bank.id === 2)
                     bank_color = 'logo__yellow'
+                let account_logos = ['logo-card-img1', 'logo-card-img1']
                 html = `<div class="menu__item">
                         <div class="bank-account__info">
                             <div class="bank-account__logo ${bank_color}"></div>
@@ -66,6 +67,8 @@ function get_accounts(user_id) {
                         </div>
                         <div id="opencontent" class="open-content">`
                 for (let account of i.accounts) {
+                    let random_logo = Math.floor(Math.random() * account_logos.length);
+
                     let account_balance = 0
                     for (let balance of account.balance.Data.Balance) {
                         account_balance += balance.Amount.amount
@@ -73,7 +76,7 @@ function get_accounts(user_id) {
                     html += `
                     <div class="menu__item">
                         <div class="account__info">
-                            <div class="account__logo"></div>
+                            <div class="${account_logos[random_logo]}"></div>
                             <div class="account__info_inside">
                                 <span class="account-name">${account.account.account_name}</span>
                                 <span class="account-balance">${account_balance} ${account.balance.Data.Balance[0].Amount.currency}</span>
