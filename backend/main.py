@@ -79,21 +79,17 @@ def get_accounts():
         if result.get(bank.id) is None:
             result[bank.id] = AccountsResponse(bank=BankResponse(id=bank.id, name=bank.name),
                                                accounts=[])
-        print(bank.application_uri)
         try:
             r = requests.get(f'{bank.application_uri}open-banking/v1.3/aisp/accounts/{account.account_id}')
         except requests.exceptions.ConnectionError:
             continue
-        print(r.status_code, 123)
 
         if r.status_code == 200:
             account_response.account.open_api_account = r.json()
 
         try:
             r = requests.get(f'{bank.application_uri}open-banking/v1.3/aisp/accounts/{account.account_id}/balances')
-            print(r.status_code)
         except requests.exceptions.ConnectionError:
-            print('error')
             continue
 
         if r.status_code == 200:
