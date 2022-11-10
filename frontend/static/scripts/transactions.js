@@ -12,3 +12,8 @@ function make_transaction(debtor_id, creditor_id, amount) {
 }
 
 make_transaction(1, 2, 100)
+
+
+function confirm() {
+    console.log(1)
+}
