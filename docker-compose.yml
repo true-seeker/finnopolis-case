@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+
+  web:
+    build: .
+    command: bash -c "python backend/models.py && python backend/main.py"
+    volumes:
+      - .:/code
+
+  bank1:
+    build: fino-bank
+    command: bash -c "python -m swagger_server 8080"
+    ports:
+      - "8080:8080"
+
+  bank2:
+    build: fino-bank
+    command: bash -c "python -m swagger_server 5467"
+    ports:
+      - "5467:5467"
