@@ -36,14 +36,15 @@ function get_accounts(user_id) {
                 }
             }
             for (let currency in currency_types) {
-                $(`#${currency}_balance`).text(total_balance_sum[currency].toFixed(2).toString() + ' ' + currency)
+                $(`#${currency}_balance`).text(total_balance_sum[currency].toFixed(2).toString())
+                $(`#${currency}_balance`).append(`<span class="currency mx-1">${currency}</span>`)
             }
 
             for (let i of Object.values(data)) {
                 console.log(i)
                 let total_bank_sum_string = ``
                 for (let cur in currency_types) {
-                    total_bank_sum_string += `${total_balance[i.bank.id][cur]} ${cur} `
+                    total_bank_sum_string += `<span>${total_balance[i.bank.id][cur]} <span class="currency" >${cur}</span></span>`
                 }
                 let bank_color = '';
                 if (i.bank.id === 1)
@@ -61,8 +62,7 @@ function get_accounts(user_id) {
                             <span class="bank-allcounts-text">${i.accounts.length}</span>
                         </div>
                         <div class="">
-                            <span class="bank-money-header">Общая сумма:</span>
-                            <span class="bank-money-text">${total_bank_sum_string}</span>
+                            <div class="d-flex justify-content-between pt-1">${total_bank_sum_string}</div>
                         </div>
                         <div id="opencontent" class="open-content">`
                 for (let account of i.accounts) {
@@ -85,20 +85,20 @@ function get_accounts(user_id) {
                 }
                 html += `</div></div>`
                 $('.menu__myAccounts').after(html)
-                            const openMenu = document.querySelector('.open-button');
-            const openContent = document.querySelector('.open-content');
+                const openMenu = document.querySelector('.open-button');
+                const openContent = document.querySelector('.open-content');
 
-            openMenu.addEventListener('click', (e) => {
-                e.preventDefault();
-                openContent.classList.toggle('open-content--show')
+                openMenu.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openContent.classList.toggle('open-content--show')
 
-                if (openMenu.style.backgroundImage == 'url("/static/img/arrow_up.png")') {
-                    openMenu.style.backgroundImage = 'url("/static/img/arrow_down.png")'
-                } else {
-                    openMenu.style.backgroundImage = 'url("/static/img/arrow_up.png")'
-                }
+                    if (openMenu.style.backgroundImage == 'url("/static/img/arrow_up.png")') {
+                        openMenu.style.backgroundImage = 'url("/static/img/arrow_down.png")'
+                    } else {
+                        openMenu.style.backgroundImage = 'url("/static/img/arrow_up.png")'
+                    }
 
-            });
+                });
             }
 
 

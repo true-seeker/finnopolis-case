@@ -110,6 +110,11 @@ def transactions():
     return render_template('transactions.html')
 
 
+@app.route("/analytics", methods=['GET', ])
+def analytics():
+    return render_template('analytics.html')
+
+
 @app.route("/payment", methods=['POST', ])
 def payment():
     body = request.json

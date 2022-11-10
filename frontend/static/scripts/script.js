@@ -9,3 +9,8 @@ function openAccountPage() {
 function openTransactionPage() {
     location.href = "/transactions";
 }
+
+function openAnalyticsPage() {
+    location.href = "/analytics";
+}
+
