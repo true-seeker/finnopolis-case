@@ -273,15 +273,17 @@ header {
 .account-block {
     margin: 0 auto;
     width: 800px;
-    border-radius: 40px;
+    border-radius: 25px;
     background-color: #F0F0F3;
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 20px;
+    box-shadow: -15px -15px 30px #FFFFFF, 15px 15px 30px #D0D0D0;
 }
 
 .account__info {
     display: flex;
+    border-bottom: 2px solid #F2790F;
 }
 
 .account__logo {
@@ -293,10 +295,15 @@ header {
 .account__info_inside {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .account-name {
     font-size: 28px;
+}
+
+.account-balance {
+    font-size: 24px;
 }
 
 .account__actions {
@@ -304,14 +311,21 @@ header {
     flex-direction: column;
 }
 
+.acctions {
+    display: flex;
+    flex-direction: column; 
+    margin-left: 10px;
+}
+
 .actions-header {
     font-size: 24px;
     margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .information-item-header {
     text-decoration: underline;
+    margin-left: 10px;
 }
 
 .information-header {
@@ -325,6 +339,10 @@ header {
     margin-bottom: 10px;
     background: #09A603;
     border-radius: 25px;
+}
+
+.actions-del{
+    background: #F2790F;
 }
 
 /*Transactions*/
