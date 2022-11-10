@@ -65,7 +65,7 @@ function get_accounts(user_id) {
                         <div class="">
                             <div class="d-flex justify-content-between pt-1">${total_bank_sum_string}</div>
                         </div>
-                        <div id="opencontent" class="open-content">`
+                        <div id="opencontent" class="open-content p-0">`
                 for (let account of i.accounts) {
                     let random_logo = Math.floor(Math.random() * account_logos.length);
 
@@ -76,14 +76,15 @@ function get_accounts(user_id) {
                     html += `
                     <div class="menu__item">
                         <div class="account__info">
-                            <div class="${account_logos[random_logo]}"></div>
                             <div class="account__info_inside">
                                 <span class="account-name">${account.account.account_name}</span>
                                 <span class="account-balance">${account_balance} ${account.balance.Data.Balance[0].Amount.currency}</span>
                             </div>
                         </div>
+                        <div class="my-1">
                         <span class="account-bankName">Номер счёта</span>
                         <span class="account-numbers">${account.account.open_api_account.Data.Account[0].AccountDetails[0].identification}</span>
+                        </div>
                     </div>`
                 }
                 html += `</div></div>`
