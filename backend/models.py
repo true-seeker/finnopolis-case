@@ -28,8 +28,8 @@ class AccountsResponse:
 
 def generate_data():
     from main import Bank, User, Account, db, app
-    bank1 = Bank(name="Зеленый банк", application_uri="bank1:8080/")
-    bank2 = Bank(name="Желтый банк", application_uri="bank2:5467/")
+    bank1 = Bank(name="Зеленый банк", application_uri="http://localhost:8080/")
+    bank2 = Bank(name="Желтый банк", application_uri="http://bank2:5467/")
     db.session.add(bank1)
     db.session.add(bank2)
     db.session.commit()
@@ -54,7 +54,8 @@ def generate_data():
     account8 = Account(user_id=user1.id, account_id='8', bank_id=bank2.id, name='Накопительный счёт')
     account9 = Account(user_id=user1.id, account_id='9', bank_id=bank2.id, name='Инвестиционный счёт')
     account10 = Account(user_id=user1.id, account_id='10', bank_id=bank2.id, name='Дебетовый счёт')
-
+    print(bank1.application_uri)
+    print(bank2.application_uri)
     db.session.add(account1)
     db.session.add(account2)
     db.session.add(account3)
