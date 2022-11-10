@@ -201,10 +201,16 @@ header {
 
 .logo-card-img1{
     background-image:  url('/static/img/logo-card1.png');
+    width: 60px;
+    height: 60px;
+    background-size: cover;
 }
 
 .logo-card-img2{
     background-image:  url('/static/img/logo-card2.png');
+    width: 60px;
+    height: 60px;
+    background-size: cover;
 }
 
 .bank-account__info {

@@ -51,7 +51,7 @@ function get_accounts(user_id) {
                     bank_color = 'logo__green'
                 if (i.bank.id === 2)
                     bank_color = 'logo__yellow'
-                let account_logos = ['logo-card-img1', 'logo-card-img1']
+                let account_logos = ['logo-card-img1', 'logo-card-img2']
                 html = `<div class="menu__item">
                         <div class="bank-account__info">
                             <div class="bank-account__logo ${bank_color}"></div>
