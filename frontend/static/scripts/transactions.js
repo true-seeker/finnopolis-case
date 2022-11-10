@@ -38,7 +38,7 @@ function make_transaction(creditor_id, debtor_id, amount) {
                 pop.style.color = "#dc3545"
                 pop.textContent = 'Произошла непредвиденная ошибка'
             },
-            403: function (response) {
+            403: function (response) {!
                 console.log(403)
 
                 pop.style.display = "block"
