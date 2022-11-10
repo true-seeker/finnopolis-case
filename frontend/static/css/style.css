@@ -28,10 +28,10 @@ body {
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    background-color: #F0F0F3;
-    box-shadow: -1px -1px 3px #FFFFFF, 1.5px 1.5px 3px rgba(174, 174, 192, 0.4);
-    border-radius: 5px;
+    background-color: #F5F5F5;
+   border-radius: 5px;
     margin-top: 200px;
+    box-shadow: -15px -15px 30px #FFFFFF, 15px 15px 30px #D0D0D0;
 }
 
 .header {
@@ -72,7 +72,7 @@ header {
 .main-menu,
 .analyse {
     background: #F5F5F5;
-    box-shadow: -20px -20px 60px #FFFFFF, 20px 20px 60px rgba(174, 174, 192, 0.4);
+    box-shadow: -15px -15px 30px #FFFFFF, 15px 15px 30px #D0D0D0;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -104,11 +104,12 @@ header {
     font-size: 32px;
     text-align: center;
     margin-bottom: 10px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #F2790F;
+    padding: 0px 10px;
 }
 
 .main-account__balance {
-    text-align: center;
+    text-align: left;
     font-size: 24px;
 }
 
@@ -119,17 +120,17 @@ header {
 }
 
 .main-account__actions {
-    text-align: center;
-    border-top: 2px solid black;
+    text-align: left;
     font-size: 24px;
     padding-top: 10px;
 }
 
 .menu__item {
-    border: 1px solid black;
-    padding: 5px;
+    border: 2px solid #D0D0D0;
+    border-radius: 25px;
+    padding: 10px 10px 0px 10px;
     box-sizing: border-box;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .menu__addItem {
@@ -139,12 +140,15 @@ header {
     background-size: cover;
     cursor: pointer;
     background-color: none;
+    margin-right: 12px;
 }
 
 .menu__myAccounts {
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
+
+    border-bottom: 2px solid #F2790F;
 }
 
 .currency{
@@ -164,6 +168,7 @@ header {
     padding: 0 15px;
     box-sizing: border-box;
     margin-top: 20px;
+    margin-bottom: 10px;
     cursor: pointer;
 }
 
@@ -175,6 +180,7 @@ header {
     width: 78px;
     height: 78px;
     margin-right: 10px;
+    border-radius: 20px;
 }
 
 .bank-account__info {
@@ -204,6 +210,7 @@ header {
 .analyse__header {
     font-size: 32px;
     text-align: center;
+    border-bottom: 2px solid #F2790F;
 }
 
 .analyse__click {
@@ -214,7 +221,7 @@ header {
 
 .dashboard__header {
     font-size: 24px;
-    text-align: center;
+    text-align: left;
 }
 
 .dashboard__graph {
