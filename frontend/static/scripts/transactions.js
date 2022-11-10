@@ -1,3 +1,6 @@
+let pop = document.querySelector('.pop')
+
+
 let select1 = () => {
     const e1 = document.querySelector('.default1')
     const choice1 = new Choices(e1, {
@@ -22,6 +25,23 @@ function make_transaction(creditor_id, debtor_id, amount) {
         type: "POST",
         url: "http://localhost:5000/payment",
         data: JSON.stringify({debtor_id: debtor_id, creditor_id: creditor_id, amount: amount}),
+        statusCode: {
+            200: function (response) {
+               pop.style.display="block"
+               pop.style.color="#28a745"
+               pop.textContent='Успешно! Перевод совершен'
+            },
+            400: function (response) {
+                pop.style.display="block"
+                pop.style.color="#dc3545"
+                pop.textContent='Неуспех'
+            },
+            403: function (response) {
+                pop.style.display="block"
+                pop.style.color="#dc3545"
+                pop.textContent='Неуспех'
+            }
+         },
         success: (data) => {
             console.log(data)
         },

@@ -84,7 +84,6 @@ header {
 }
 
 .logout {
-    background: #F2790F;
     margin: 8px;
     border-radius: 10px;
 }
@@ -396,7 +395,6 @@ header {
 .actions-trans {
     width: 200px;
     margin-bottom: 10px;
-    background: #09A603;
     border-radius: 25px;
 }
 
