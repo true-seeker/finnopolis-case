@@ -10,6 +10,9 @@ function openTransactionPage() {
     location.href = "http://127.0.0.1:5500/finnopolis-case/frontend/html/transactions.html";
 }
 
+function openAnalyticsPage() {
+    location.href = "http://127.0.0.1:5500/finnopolis-case/frontend/html/analytics.html";
+}
 
 
 const openMenu = document.querySelector('.open-button');
@@ -27,3 +30,5 @@ openMenu.addEventListener('click', (e) => {
     }
    
 });
+
+
