@@ -161,7 +161,7 @@ header {
     max-height: 0;
     overflow: hidden;
     transition: 1s ease max-height;
-    padding: 0 15px;
+    padding: 0 15px 10px 15px;
     box-sizing: border-box;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -178,6 +178,14 @@ header {
     background-color: black;
     margin-right: 10px;
     border-radius: 20px;
+}
+
+.logo-card-img1{
+    background-image:  url('/static/img/logo-card1.png');
+}
+
+.logo-card-img2{
+    background-image:  url('/static/img/logo-card2.png');
 }
 
 .bank-account__info {
