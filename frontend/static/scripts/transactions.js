@@ -27,21 +27,26 @@ function make_transaction(creditor_id, debtor_id, amount) {
         data: JSON.stringify({debtor_id: debtor_id, creditor_id: creditor_id, amount: amount}),
         statusCode: {
             200: function (response) {
-               pop.style.display="block"
-               pop.style.color="#28a745"
-               pop.textContent='Успешно! Перевод совершен'
+                console.log(200)
+                pop.style.display = "block"
+                pop.style.color = "#28a745"
+                pop.textContent = 'Успешно! Перевод совершен'
             },
             400: function (response) {
-                pop.style.display="block"
-                pop.style.color="#dc3545"
-                pop.textContent='Неуспех'
+                console.log(400)
+
+                pop.style.display = "block"
+                pop.style.color = "#dc3545"
+                pop.textContent = 'Произошла непредвиденная ошибка'
             },
             403: function (response) {
-                pop.style.display="block"
-                pop.style.color="#dc3545"
-                pop.textContent='Неуспех'
+                console.log(403)
+
+                pop.style.display = "block"
+                pop.style.color = "#dc3545"
+                pop.textContent = 'Недостаточно средств'
             }
-         },
+        },
         success: (data) => {
             console.log(data)
         },
@@ -80,6 +85,7 @@ function get_accounts(user_id) {
 $('#make-transaction').click(() => {
     let from_id = from_select.getValue().value
     let to_id = to_select.getValue().value
+
     let amount = $('#amount_input').val()
     console.log(amount)
     make_transaction(from_id, to_id, amount)
