@@ -45,6 +45,7 @@ body {
 
 header {
     margin-bottom: 40px;
+    box-shadow: -4px -4px 15px #FFFFFF, 4px 4px 12px #D0D0D0;
 }
 
 .info__user,
@@ -92,6 +93,9 @@ header {
     margin-bottom: 10px;
     border-bottom: 2px solid #F2790F;
     padding: 0px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .main-account__balance {
@@ -139,6 +143,9 @@ header {
 
 .addItem-header {
     font-size: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .open-content {
@@ -305,8 +312,10 @@ header {
 
 .actions-del,
 .actions-trans {
-    width: 150px;
+    width: 200px;
     margin-bottom: 10px;
+    background: #09A603;
+    border-radius: 25px;
 }
 
 .transactions__wrapper {
