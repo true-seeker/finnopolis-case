@@ -32,14 +32,18 @@ function make_transaction(creditor_id, debtor_id, amount) {
                 pop.textContent = 'Успешно! Перевод совершен'
             },
             400: function (response) {
+                console.log(400)
+
                 pop.style.display = "block"
                 pop.style.color = "#dc3545"
-                pop.textContent = 'Неуспех'
+                pop.textContent = 'Произошла непредвиденная ошибка'
             },
             403: function (response) {
+                console.log(403)
+
                 pop.style.display = "block"
                 pop.style.color = "#dc3545"
-                pop.textContent = 'Неуспех'
+                pop.textContent = 'Недостаточно средств'
             }
         },
         success: (data) => {
@@ -80,6 +84,7 @@ function get_accounts(user_id) {
 $('#make-transaction').click(() => {
     let from_id = from_select.getValue().value
     let to_id = to_select.getValue().value
+
     let amount = $('#amount_input').val()
     console.log(amount)
     make_transaction(from_id, to_id, amount)

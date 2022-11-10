@@ -10,17 +10,17 @@ from sqlalchemy import Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from flask_cors import CORS
 
-from backend.models import AccountResponse, BankResponse, AccountsResponse, AccountData
+from models import AccountResponse, BankResponse, AccountsResponse, AccountData
 
-base_dir = os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-template_dir = os.path.join(base_dir, 'finnopolis-case')
-template_dir = os.path.join(template_dir, 'frontend')
+# base_dir = os.path.dirname(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+# template_dir = os.path.join('', 'finnopolis-case')
+template_dir = os.path.join('/', 'frontend')
 template_dir = os.path.join(template_dir, 'html')
-
-static_dir = os.path.join(base_dir, 'finnopolis-case')
-static_dir = os.path.join(static_dir, 'frontend')
+print(template_dir)
+# static_dir = os.path.join('', 'finnopolis-case')
+static_dir = os.path.join('/', 'frontend')
 static_dir = os.path.join(static_dir, 'static')
-
+print(static_dir)
 app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 db = SQLAlchemy(app)
@@ -67,6 +67,9 @@ def get_accounts():
     result = {}
     for account in user.accounts:
         bank = db.get_or_404(Bank, account.bank_id)
+        bank.application_uri = bank.application_uri.replace('localhost:8080', 'bank1:8080')
+        bank.application_uri = bank.application_uri.replace('localhost:5467', 'bank2:5467')
+
         account_data = AccountData(open_api_account={},
                                    account_name=account.name,
                                    account_id=account.id)
@@ -76,7 +79,6 @@ def get_accounts():
         if result.get(bank.id) is None:
             result[bank.id] = AccountsResponse(bank=BankResponse(id=bank.id, name=bank.name),
                                                accounts=[])
-
         try:
             r = requests.get(f'{bank.application_uri}open-banking/v1.3/aisp/accounts/{account.account_id}')
         except requests.exceptions.ConnectionError:
@@ -127,7 +129,8 @@ def payment():
     creditor = db.get_or_404(Account, creditor_id)
 
     bank = db.get_or_404(Bank, debtor.bank_id)
-
+    bank.application_uri = bank.application_uri.replace('localhost:8080','bank1:8080')
+    bank.application_uri = bank.application_uri.replace('localhost:5467','bank2:5467')
     try:
         r = requests.post(f'{bank.application_uri}open-banking/v1.3/aisp/vrp-payments',
                           data=json.dumps({'debtor_id': debtor.account_id,
@@ -148,4 +151,4 @@ def payment():
 
 if __name__ == '__main__':
     with app.app_context():
-        app.run()
+        app.run(host='0.0.0.0', port=5000)
