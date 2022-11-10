@@ -11,8 +11,10 @@
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/bootstrap.min.css">
     <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/style.css">
+    <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/choices.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/choices.css') }}">
 
     <link rel="stylesheet" href="/finnopolis-case/frontend/static/css/choices.css">
     
@@ -22,7 +24,7 @@
     <header>
         <div class="container">
             <div class="header">
-                <a href="http://127.0.0.1:5500/finnopolis-case/frontend/html/main.html">
+                <a href="/main">
                     <div class="logo">
                         <h1>ПУФ</h1>
                         <h2 class="header__name">переводы</h2>
@@ -46,19 +48,8 @@
                 <p class="transactions__header">Откуда</p>
                 <p class="transactions__label">Выберите счет</p>
 
-                <select name="" id="" class="default">
-                    <option value="">
-                        <span class="select__name">1цукцукцук</span>
-                        <span class="select__balance">22323233</span>
-                    </option>
-                    <option value="">
-                        <span class="select__name">ываывацукцукцук</span>
-                        <span class="select__balance">22323233</span>
-                    </option>
-                    <option value="">
-                        <span class="select__name">цукцук</span>
-                        <span class="select__balance">22323233</span>
-                    </option>
+                <select name="" id="from_select" class="default">
+
                 </select>
             </div>
 
@@ -66,25 +57,14 @@
                 <p class="transactions__header">Куда</p>
                 <p class="transactions__label">Выберите счет</p>
 
-                <select name="" id="" class="default1">
-                    <option value="">
-                        <span class="select__name">1цукцукцук</span>
-                        <span class="select__balance">22323233</span>
-                    </option>
-                    <option value="">
-                        <span class="select__name">ываывацукцукцук</span>
-                        <span class="select__balance">22323233</span>
-                    </option>
-                    <option value="">
-                        <span class="select__name">цукцук</span>
-                        <span class="select__balance">22323233</span>
-                    </option>
+                <select name="" id="to_select" class="default1">
+
                 </select>
             </div>
 
             <div class="transactions__block">
                 <p class="transactions__header">Сколько</p>
-                <input type="text" class="transactions__inp">
+                <input type="text" class="transactions__inp" id="amount_input">
             </div>
 
             <button class="btn btn-success transactions_btn" data-toggle="popover" onclick="confirm()">Перевести</button>
@@ -97,6 +77,8 @@
 
     <!--    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>-->
     <script src="{{ url_for('static', filename='scripts/transactions.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/choices.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/choice.js') }}"></script>
 
 
 

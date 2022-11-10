@@ -8,7 +8,7 @@ function get_accounts(user_id) {
     $.ajax({
         type: "POST",
         url: "http://localhost:5000/get_accounts",
-        data: JSON.stringify({user_id: 1}),
+        data: JSON.stringify({user_id: user_id}),
         success: (data) => {
             let total_balance = {}
             for (let i of Object.values(data)) {
@@ -36,18 +36,25 @@ function get_accounts(user_id) {
                 }
             }
             for (let currency in currency_types) {
-                $(`#${currency}_balance`).text(total_balance_sum[currency].toFixed(2).toString() + ' ' + currency)
+                $(`#${currency}_balance`).text(total_balance_sum[currency].toFixed(2).toString())
+                $(`#${currency}_balance`).append(`<span class="currency mx-1">${currency}</span>`)
             }
 
             for (let i of Object.values(data)) {
                 console.log(i)
                 let total_bank_sum_string = ``
                 for (let cur in currency_types) {
-                    total_bank_sum_string += `${total_balance[i.bank.id][cur]} ${cur} `
+                    total_bank_sum_string += `<span>${total_balance[i.bank.id][cur]} <span class="currency" >${cur}</span></span>`
                 }
+                let bank_color = '';
+                if (i.bank.id === 1)
+                    bank_color = 'logo__green'
+                if (i.bank.id === 2)
+                    bank_color = 'logo__yellow'
+                let account_logos = ['logo-card-img1', 'logo-card-img2']
                 html = `<div class="menu__item">
                         <div class="bank-account__info">
-                            <div class="bank-account__logo"></div>
+                            <div class="bank-account__logo ${bank_color}"></div>
                             <span class="bank-account-bankName">${i.bank.name}</span>
                             <div class="bank-account-btn open-button" rel="nofollow"></div>
                         </div>
@@ -56,11 +63,12 @@ function get_accounts(user_id) {
                             <span class="bank-allcounts-text">${i.accounts.length}</span>
                         </div>
                         <div class="">
-                            <span class="bank-money-header">Общая сумма:</span>
-                            <span class="bank-money-text">${total_bank_sum_string}</span>
+                            <div class="d-flex justify-content-between pt-1">${total_bank_sum_string}</div>
                         </div>
                         <div id="opencontent" class="open-content">`
                 for (let account of i.accounts) {
+                    let random_logo = Math.floor(Math.random() * account_logos.length);
+
                     let account_balance = 0
                     for (let balance of account.balance.Data.Balance) {
                         account_balance += balance.Amount.amount
@@ -68,10 +76,10 @@ function get_accounts(user_id) {
                     html += `
                     <div class="menu__item">
                         <div class="account__info">
-                            <div class="account__logo"></div>
+                            <div class="${account_logos[random_logo]}"></div>
                             <div class="account__info_inside">
                                 <span class="account-name">${account.account.account_name}</span>
-                                <span class="account-balance">${account_balance}</span>
+                                <span class="account-balance">${account_balance} ${account.balance.Data.Balance[0].Amount.currency}</span>
                             </div>
                         </div>
                         <span class="account-bankName">Номер счёта</span>
@@ -80,7 +88,22 @@ function get_accounts(user_id) {
                 }
                 html += `</div></div>`
                 $('.menu__myAccounts').after(html)
+                const openMenu = document.querySelector('.open-button');
+                const openContent = document.querySelector('.open-content');
+
+                openMenu.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openContent.classList.toggle('open-content--show')
+
+                    if (openMenu.style.backgroundImage == 'url("/static/img/arrow_up.png")') {
+                        openMenu.style.backgroundImage = 'url("/static/img/arrow_down.png")'
+                    } else {
+                        openMenu.style.backgroundImage = 'url("/static/img/arrow_up.png")'
+                    }
+
+                });
             }
+
 
         },
         dataType: "json",
